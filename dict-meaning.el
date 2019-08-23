@@ -1,13 +1,16 @@
+;; dict-meaning is a simple emacs plugin to get meaning of a word in any emacs buffer from Oxford Dictionary
+;; Author: karthic891@gmail.com
+
 (require 'cl-lib)
 
 (cl-defstruct meaning definitions usages)
 (cl-defstruct word key meanings)
 
 (defun parse-definitions (definitions)
-  ;; (print (format "Definitions: %s" definitions))
+  "Parse the definitions Vector and return a list of definitions"
   (setq final-definitions nil)
   (let (definitions-len i definition)
-    (setq definitions-len ( length definitions))
+    (setq definitions-len (length definitions))
     (setq i 0)
     (while (< i definitions-len)
       (setq definition (elt definitions i))
@@ -16,6 +19,7 @@
   final-definitions)
 
 (defun parse-examples (examples)
+  "Parse the examples Vector and return a list of examples"
   (setq final-examples nil)
   (let (examples-len i example-pair example)
     (setq examples-len (length examples))
@@ -66,10 +70,6 @@
       (setq meanings-list (cdr meanings-list))
       (setq i (1+ i)))))
 
-(defun print-nonsense (buffer-name)
-  (with-help-window buffer-name
-    (print "nonsense")))
-
 (defun dict-meaning ()
   (interactive)
   (let (word)
@@ -79,8 +79,8 @@
 
 
 (defun get-meaning-from-oxford-dict (word1)
-  ;; Get the definition and usage from Oxford Dictionary
-  ;; Sign into: https://developer.oxforddictionaries.com to get app_id and app_key
+  "Get the definition and usage from Oxford Dictionary"
+  ;; Sign into: https://developer.oxforddictionaries.com and create an account to get app_id and app_key
   (let (oxford-dict-url accept-header app-id-header app-key-header)
     (setq oxford-dict-url (concat "https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/" word1 "?strictMatch=false"))
     (setq accept-header "application/json")
