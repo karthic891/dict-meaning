@@ -19,7 +19,7 @@ dict-meaning is a simple Emacs plugin to get the meaning(s) of a word from Oxfor
 5. Restart the emacs for the changes to take effect
 6. Place the cursor over any word and press `M-x dict-meaning` The definition(s) and usage(s) will be displayed in separate buffer named `WordOfTheDay` You can press `q` to quit from that buffer to return back to original buffer
 7. Optional: You can bind `dict-meaning` to any key combination that you like by adding the following to your `.emacs` file
-	```
+	```elisp
 	(global-set-key (kbd "C-c C-m") 'dict-meaning)
 	```
 
