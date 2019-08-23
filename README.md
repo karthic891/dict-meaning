@@ -25,7 +25,8 @@ dict-meaning is a simple Emacs plugin to get the meaning(s) of a word from Oxfor
 
 Finally, feedback is not only welcome, but encouraged. Thank you very much for using dict-meaning!
 
-###  Credits
+## Credits
 * [Request.el](https://github.com/tkf/emacs-request) to help make HTTP calls in ELisp
 * [ErgoEmacs](http://ergoemacs.org/emacs/elisp.html) for providing a kick-start to ELisp
 * [StackEdit](https://stackedit.io/app#) to help write this clean README.md in a very short duration
+
